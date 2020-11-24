@@ -21,12 +21,13 @@ post '/visits' do
   @phone = params[:user_phone]
   @date = params[:date_time]
   @barber = params[:barber]
+  @colorpicker = params[:colorpicker]
 
   @f = File.open('./public/users.txt', 'a')
-  @f.write "User: [#{@user}] -- Phone: [#{@phone}] -- Date time: [#{@date}] -- Barber: [#{@barber}]\n"
+  @f.write "User: [#{@user}] -- Phone: [#{@phone}] -- Date time: [#{@date}] -- Barber: [#{@barber}] -- Hair color: [#{@colorpicker}]\n"
   @f.close
 
-  erb "Dear, #{@user}! We'll wait you at #{@date}. Your barber - #{@barber}."
+  erb "Dear, #{@user}! We'll wait you at #{@date}. Your barber - #{@barber}. You choose #{@colorpicker} color for hair."
 end
 
 get '/contacts' do
